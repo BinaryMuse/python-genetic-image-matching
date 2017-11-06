@@ -51,8 +51,7 @@ class Candidate:
 
     def mutate(self, mutation_chance):
         """
-        Changes the Candidate by flipping a single bit in its DNA from 1 to 0 or vise versa.
-        Returns a new Candidate with the mutation.
+        Returns a new Candidate with random genes modified based on the mutation_chance (0 to 1).
         """
         return Candidate(self.dna.mutate(mutation_chance))
 
