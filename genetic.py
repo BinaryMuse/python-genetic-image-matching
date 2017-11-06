@@ -145,7 +145,7 @@ class App:
         self.label = Tk.Label(self.root, textvariable=self.info, anchor=Tk.W, justify=Tk.LEFT)
         self.label.grid(row=2, column=0, columnspan=3, sticky=Tk.W)
 
-        self.chance_slider = Tk.Scale(self.root, from_=0.0, to=0.1, resolution=0.001,
+        self.chance_slider = Tk.Scale(self.root, from_=0.0, to=0.1, resolution=0.001, showvalue=0,
                                       orient=Tk.HORIZONTAL, command=self._adjust_mutation_chance)
         self.chance_slider.grid(row=3, column=0, sticky=Tk.W)
         self.chance_slider.set(self.mutation_chance)
@@ -184,9 +184,9 @@ class App:
             "Reign: {}",
             "Best Score: {}",
             "Candidate Score: {}",
-            "Mutation Chance: {}"
+            "Mutation Chance: {}%"
         ]).format(
-            self.iterations, self.generation, self.reign, self.parent_score, self.candidate_score, self.mutation_chance
+            self.iterations, self.generation, self.reign, self.parent_score, self.candidate_score, 100.0 * self.mutation_chance
         )
 
     def focus(self):
